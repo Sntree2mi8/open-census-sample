@@ -1,0 +1,19 @@
+
+
+version: "3.8"
+
+services:
+  db:
+    container_name: "ocsample_db"
+    image: mysql:8.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    volumes:
+      - ./db/mysqlconf/initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - "13306:3306"
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u root
+      interval: 10s
+      timeout: 20s
+      retries: 10
