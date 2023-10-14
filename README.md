@@ -19,7 +19,15 @@ sample
 
 you can access http://localhost:16686
 
+### Start database
+```
+docker compose up -d
+```
+
 ### Start application
+```
+go run main.go
+```
 
 ## References
 - https://opencensus.io/exporters/supported-exporters/go/jaeger/
